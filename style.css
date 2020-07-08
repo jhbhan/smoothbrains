@@ -1,0 +1,47 @@
+header {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+button {
+    text-decoration: none;
+    border: none;
+    font-size: 18px;
+    padding: 8px 8px;
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+}
+
+img {
+    object-fit: cover;
+    width: 100px;
+}
+
+img:hover {
+    width: 120px;
+}
+
+.brain_row {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    padding-bottom: 18px;
+}
+
+.brain_button {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.brain_smooth {
+    background-color: lightcoral;
+}
+
+.brain_wrinkle {
+    background-color: lightblue;
+}
