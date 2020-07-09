@@ -30,7 +30,6 @@ $(".brain_wrinkle").click(function () {
         $(this).prop("disabled", true);
     }
     var new_image_source = img_url + wrinkle_count[name] + extention;
-    console.log(new_image_source);
     $(this)
         .closest(".brain_container")
         .find("img")
@@ -53,7 +52,6 @@ $(".brain_smooth").click(function () {
     }
 
     var new_image_source = img_url + wrinkle_count[name] + extention;
-    console.log(new_image_source);
     $(this)
         .closest(".brain_container")
         .find("img")
