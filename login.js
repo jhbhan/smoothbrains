@@ -7,7 +7,17 @@ $(".login_button").click(function () {
         $(".error_1").css("display", "none");
         $(".error_2").css("display", "block");
     } else {
-        $(".error_1").css("display", "none");
-        window.location.pathname = "index.html";
+        var url = "localhost:5502/login";
+        xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onload = function () {
+            console.log("logged in!");
+        };
+        xhr.onerror = function () {
+            console.log("browser sees error");
+        };
+        xhr.send();
+        // $(".error_1").css("display", "none");
+        //window.location.pathname = "index.html";
     }
 });
