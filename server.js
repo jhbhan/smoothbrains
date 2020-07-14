@@ -50,8 +50,34 @@ function loginhandler(req, res) {
         }
     }
 }
-app.get("/login", loginhandler);
 
+function wrinklehandler(req, res) {
+    console.log("wrinkle handler");
+    const name = req.query.name;
+    const val = req.query.wrinkle;
+    const code = req.query.code;
+
+    if (name != undefined && val != undefined && code != undefined) {
+        cmd = `Update Brains SET score = score + @0 where name = @1 and usercode = @2`;
+        db.run(cmd, [val, name, code], function (err) {
+            console.log("in wrinkle callback");
+            if (err) {
+                console.log(err);
+                res.json("fail");
+                return false;
+            } else {
+                res.json("success");
+                return false;
+            }
+        });
+    } else {
+        res.json("query error");
+        return false;
+    }
+}
+
+app.get("/login", loginhandler);
+app.get("/wrinkle", wrinklehandler);
 app.get("/*", handler);
 
 app.listen(port, function () {
