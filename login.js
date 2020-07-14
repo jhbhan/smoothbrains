@@ -7,14 +7,14 @@ $(".login_button").click(function () {
         $(".error_1").css("display", "none");
         $(".error_2").css("display", "block");
     } else {
-        var url = "localhost:5502/login";
-        xhr = new XMLHttpRequest();
-        xhr.open("GET", url, true);
-        xhr.onload = function () {
-            console.log("logged in!");
-        };
-        xhr.onerror = function () {
-            console.log("browser sees error");
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost:5502/login?usercode=boba");
+        xhr.onload = () => {
+            console.log(xhr.response);
+            sessionStorage.setItem("brainData", xhr.response);
+            console.log("stored!");
+            console.log(sessionStorage.getItem("brainData"));
+            window.location = "./index.html";
         };
         xhr.send();
         // $(".error_1").css("display", "none");

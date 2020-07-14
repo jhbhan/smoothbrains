@@ -1,16 +1,11 @@
-var wrinkle_count = {
-    Ben: 5,
-    Justin: 5,
-    Jacob: 5,
-    Eric: 5,
-    Jason: 5,
-    Robin: 5,
-    Jeremiah: 5,
-    Addison: 5,
-};
+$(document).ready(function () {
+    console.log(sessionStorage.getItem("brainData"));
+});
+var wrinkle_count = sessionStorage.getItem("brainData");
 
-var img_url = "/assets/brain";
-var extention = ".png";
+const img_url = "/assets/brain";
+const extention = ".png";
+
 $(".brain_wrinkle").click(function () {
     var name = $(this).closest(".brain_container").find("h1")[0].innerHTML;
     var max_announcement = "BIG BRAINS";
@@ -35,6 +30,7 @@ $(".brain_wrinkle").click(function () {
         .find("img")
         .attr("src", new_image_source);
 });
+
 $(".brain_smooth").click(function () {
     let name = $(this).closest(".brain_container").find("h1")[0].innerHTML;
     let min_announcement = `${name}'s brain is completely smooth! Move him to 291 immediately!`;
